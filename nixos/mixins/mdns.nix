@@ -13,6 +13,6 @@ in
         "99-ethernet-default-dhcp".networkConfig.MulticastDNS = lib.mkDefault true;
         "99-wireless-client-dhcp".networkConfig.MulticastDNS = lib.mkDefault true;
       }
-      // builtins.mapAttrs (_: { networkConfig.MulticastDNS = lib.mkDefault true; }) dhcpInterfaces;
+      // builtins.mapAttrs (_: _: { networkConfig.MulticastDNS = lib.mkDefault true; }) dhcpInterfaces;
   };
 }
