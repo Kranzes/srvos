@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let
-  dhcpInterfaces = lib.filterAttrs (i: i.useDHCP == true) config.networking.interfaces;
+  dhcpInterfaces = lib.filterAttrs (_: v: v.useDHCP) (config.networking.interfaces or { });
 in
 {
   # Avahi is an alternative implementation. If it's enabled, than we don't need the code below.
